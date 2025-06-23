@@ -36,16 +36,20 @@
 - [4. DATA-SPECIFIC INFORMATION](#4-data-specific-information)
   - [4.1 Spatial\_Units.geojson](#41-spatial_unitsgeojson)
   - [4.2. Attributes](#42-attributes)
-    - [Spatial\_Units-Land\_Use\_Types.geojson](#spatial_units-land_use_typesgeojson)
-    - [Spatial\_Units-Accessibility.geojson: Population living at less than 1km](#spatial_units-accessibilitygeojson-population-living-at-less-than-1km)
-    - [Spatial\_Units-Visibility.geojson: Visibility of the Streams](#spatial_units-visibilitygeojson-visibility-of-the-streams)
-    - [Spatial\_Units-Shade\_3pm.geojson: Proportion of shaded area at 3pm](#spatial_units-shade_3pmgeojson-proportion-of-shaded-area-at-3pm)
-    - [Spatial\_Units-Flood\_Safety.geojson: Flood safety based on a simulation](#spatial_units-flood_safetygeojson-flood-safety-based-on-a-simulation)
-    - [Spatial\_Units-Infiltration\_Capacity.geojson](#spatial_units-infiltration_capacitygeojson)
-    - [Spatial\_Units-Space\_along\_Streams.geojson](#spatial_units-space_along_streamsgeojson)
-    - [Spatial\_Units-Green\_Area.geojson](#spatial_units-green_areageojson)
-    - [Spatial\_Units-NDVI.geojson](#spatial_units-ndvigeojson)
-    - [Spatial\_Units-Soil\_Quality.geojson](#spatial_units-soil_qualitygeojson)
+    - [4.2.1 Spatial\_Units-Land\_Use\_Types.geojson](#421-spatial_units-land_use_typesgeojson)
+    - [4.2.2 Spatial\_Units-Accessibility.geojson](#422-spatial_units-accessibilitygeojson)
+    - [4.2.3 Spatial\_Units-Visibility.geojson](#423-spatial_units-visibilitygeojson)
+    - [4.2.4 Spatial\_Units-Shade\_3pm.geojson](#424-spatial_units-shade_3pmgeojson)
+    - [4.2.5 Spatial\_Units-Flood\_Safety.geojson](#425-spatial_units-flood_safetygeojson)
+    - [4.2.6 Spatial\_Units-Infiltration\_Capacity.geojson](#426-spatial_units-infiltration_capacitygeojson)
+    - [4.2.7 Spatial\_Units-Space\_along\_Streams.geojson](#427-spatial_units-space_along_streamsgeojson)
+    - [4.2.8 Spatial\_Units-Green\_Area.geojson](#428-spatial_units-green_areageojson)
+    - [4.2.9 Spatial\_Units-NDVI.geojson](#429-spatial_units-ndvigeojson)
+    - [4.2.10 Spatial\_Units-Soil\_Quality.geojson](#4210-spatial_units-soil_qualitygeojson)
+  - [4.3 Analysis Results](#43-analysis-results)
+    - [4.3.1 Spatial\_Units-All\_Attributes.geojson](#431-spatial_units-all_attributesgeojson)
+    - [4.3.2 Spatial\_Units-MCDA.geojson](#432-spatial_units-mcdageojson)
+    - [4.3.3 Spatial\_Units-Typology\_Construction.geojson](#433-spatial_units-typology_constructiongeojson)
 - [5. SHARING/ACCESS INFORMATION](#5-sharingaccess-information)
   - [5.1 Licenses/restrictions placed on the data](#51-licensesrestrictions-placed-on-the-data)
   - [5.2 Links to other resources](#52-links-to-other-resources)
@@ -234,8 +238,8 @@ The spatial units that are used for the analysis are contained in Spatial\_Units
 The final results of the analysis consists of 3 main files:
 
 - Spatial\_Units-All\_Attributes.geojson: the aggregation of the normalised values of all the attributes for all the spatial units  
-- Spatial\_Units-MCDA\_values.geojson: the results of our MCDA analysis based on the attributes and the weights that we used. There is one column for each category (Biodiversity, Quality of Life and Climate Adaptation) and one column with the average for the 3 categories.  
-- Spatial\_Units-Typology\_Construction\_values.geojson: the results of our typology construction analysis on a subset of the attributes. It contains both the clusters and the distance from each point to the center of the cluster.
+- Spatial\_Units-MCDA.geojson: the results of our MCDA analysis based on the attributes and the weights that we used. There is one column for each category (Biodiversity, Quality of Life and Climate Adaptation) and one column with the average for the 3 categories.  
+- Spatial\_Units-Typology\_Construction.geojson: the results of our typology construction analysis on a subset of the attributes. It contains both the clusters and the distance from each point to the center of the cluster.
 
 ## 3.2 Relationship between files
 
@@ -284,7 +288,7 @@ GeoJSON (with specific CRS)
 
 In this category, all the layers have all the variables of Spatial\_Units.geojson as well as other variables. We will only describe the supplementary variables. Also, they all have 2225 rows corresponding to the same 2225 spatial units. Finally, all the layers contain a variable called “Normalised\_Value” that is the normalised variable between 0 and 1 that we used for MCDA. In the description of this variable, “reversed” means that the lowest value became 1 and the highest value became 0, while “not reversed” means that the lowest value became 0 and the highest value became 1\.
 
-### Spatial\_Units-Land\_Use\_Types.geojson
+### 4.2.1 Spatial\_Units-Land\_Use\_Types.geojson
 
 1. Number of variables: 8 \+ 2  
 2. Total file size: 1.4MB  
@@ -295,7 +299,7 @@ In this category, all the layers have all the variables of Spatial\_Units.geojso
 | Different\_Land\_Uses | Number of different land uses in the spatial unit | integer | N/A | 0 |
 | Normalised\_Value | “Different\_Land\_Uses” normalised between 0 and 1 (not reversed) | float | N/A | 0 |
 
-### Spatial\_Units-Accessibility.geojson: Population living at less than 1km
+### 4.2.2 Spatial\_Units-Accessibility.geojson
 
 1. Number of variables: 8 \+ 3  
 2. Total file size: 1.7 MB  
@@ -307,7 +311,7 @@ In this category, all the layers have all the variables of Spatial\_Units.geojso
 | Pop\_Density\_Sum\_Times\_2000\_Minus\_Cost\_Sum | Sum of the “pop × (2000 \- cost)” where pop is the population of the starting point and cost the distance from the starting point to the spatial unit centroid | float | ppl/hectare×m | 0 |
 | Normalised\_Value | Normalised between 0 and 1 (Not reversed) | float | N/A | 0 |
 
-### Spatial\_Units-Visibility.geojson: Visibility of the Streams
+### 4.2.3 Spatial\_Units-Visibility.geojson
 
 1. Number of variables: 8 \+ 4  
 2. Total file size: 1.6 MB  
@@ -320,7 +324,7 @@ In this category, all the layers have all the variables of Spatial\_Units.geojso
 | \_mean | Proportion of visible pixels to empty pixels | float | N/A | 0 |
 | Normalised\_Value | Normalised between 0 and 1 (Not reversed) | float | N/A | 0 |
 
-### Spatial\_Units-Shade\_3pm.geojson: Proportion of shaded area at 3pm
+### 4.2.4 Spatial\_Units-Shade\_3pm.geojson
 
 1. Number of variables: 8 \+ 4  
 2. Total file size: 1.6 MB  
@@ -333,7 +337,7 @@ In this category, all the layers have all the variables of Spatial\_Units.geojso
 | Proportion\_Shaded | Proportion of illuminated pixels to empty pixels | float | N/A | 0 |
 | Normalised\_Value | Normalised between 0 and 1 (Reversed) | float | N/A | 0 |
 
-### Spatial\_Units-Flood\_Safety.geojson: Flood safety based on a simulation
+### 4.2.5 Spatial\_Units-Flood\_Safety.geojson
 
 1. Number of variables: 8 \+ 5  
 2. Total file size: 1.6 MB  
@@ -349,7 +353,7 @@ In this category, all the layers have all the variables of Spatial\_Units.geojso
 
 Here, the risk refers to the category of risk that was assigned in the simulation made by the authorities of Dresden. Each risk value was assigned a value (0 for EXT, 0.33 for MID, 0.67 for LOW and 1 for SAFE), so that 0 corresponds to highest risk and 1 to lowest risk, and the weighted average was computed in each spatial unit, before being normalised.
 
-### Spatial\_Units-Infiltration\_Capacity.geojson
+### 4.2.6 Spatial\_Units-Infiltration\_Capacity.geojson
 
 1. Number of variables: 8 \+ 1  
 2. Total file size: 1.5MB  
@@ -359,7 +363,7 @@ Here, the risk refers to the category of risk that was assigned in the simulatio
 | :---- | :---- | :---- | :---- | :---- |
 | Normalised\_Value | Normalised value of the average infiltration capacity of the soil (not reversed) | float | N/A | 0 |
 
-### Spatial\_Units-Space\_along\_Streams.geojson
+### 4.2.7 Spatial\_Units-Space\_along\_Streams.geojson
 
 1. Number of variables: 8 \+ 2  
 2. Total file size: 1.5MB  
@@ -370,7 +374,7 @@ Here, the risk refers to the category of risk that was assigned in the simulatio
 | availablespacearea\_new  | Area of available space in the spatial unit | float | m² | 0 |
 | Normalised\_Value | “availablespacearea\_new” divided by the area of the spatial unit (it is directly normalised between 0 and 1\) | float | N/A | 0 |
 
-### Spatial\_Units-Green\_Area.geojson
+### 4.2.8 Spatial\_Units-Green\_Area.geojson
 
 1. Number of variables: 8 \+ 3  
 2. Total file size: 1.6MB  
@@ -382,7 +386,7 @@ Here, the risk refers to the category of risk that was assigned in the simulatio
 | Green\_Area | Area of greenery in the spatial unit | float | m² | 0 |
 | Normalised\_Value | “Green\_Area” / “Area” (it is directly normalised between 0 and 1\) | float | N/A | 0 |
 
-### Spatial\_Units-NDVI.geojson
+### 4.2.9 Spatial\_Units-NDVI.geojson
 
 1. Number of variables: 8 \+ 2  
 2. Total file size: 1.5MB  
@@ -393,7 +397,7 @@ Here, the risk refers to the category of risk that was assigned in the simulatio
 | ndvi\_mean | Average value of the Normalised Difference Vegetation Index in the months of June, July, August from 2020 to 2024 | float | N/A | 0 |
 | Normalised\_Value | “ndvi\_mean” normalised between 0 and 1 (not reversed) | float | N/A | 0 |
 
-### Spatial\_Units-Soil\_Quality.geojson
+### 4.2.10 Spatial\_Units-Soil\_Quality.geojson
 
 1. Number of variables: 8 \+ 4  
 2. Total file size: 1.7MB  
@@ -407,6 +411,48 @@ Here, the risk refers to the category of risk that was assigned in the simulatio
 | Normalised\_Value | “Average\_Quality” normalised between 0 and 1 (not reversed) | float | N/A | 0 |
 
 “Normalised\_Value” does not have any missing values because the missing values were replaced by 0\. We made this choice because missing values corresponded to urban areas without any data, where we can say that there is no infiltration because of the soil cover.
+
+## 4.3 Analysis Results
+
+In this category, all the layers have all the variables of Spatial\_Units.geojson as well as other variables. We will only describe the supplementary variables. Also, they all have 2225 rows corresponding to the same 2225 spatial units.
+
+### 4.3.1 Spatial\_Units-All\_Attributes.geojson
+
+1. Number of variables: 8 \+ 10
+2. Total file size: 1.9 MB
+3. Variable List:
+
+| Full name | Description | Type of variable | Unit of measurement | Number of missing values |
+| :---- | :---- | :---- | :---- | :---- |
+| Space\_along\_Streams |  | float | N/A | 0 |
+| Soil\_Quality |  | float | N/A | 0 |
+| NDVI |  | float | N/A | 0 |
+| Infiltration |  | float | N/A | 0 |
+| Green\_Area |  | float | N/A | 0 |
+| Flood\_Safety |  | float | N/A | 0 |
+| Land\_Use_Types |  | float | N/A | 0 |
+| Shade\_3pm |  | float | N/A | 0 |
+| Accessibility |  | float | N/A | 0 |
+| Visibility |  | float | N/A | 0 |
+
+Each variable corresponds to the “Normalised\_Value” variable of the corresponding file mentioned in the previous section.
+
+### 4.3.2 Spatial\_Units-MCDA.geojson
+
+1. Number of variables: 8 \+ 2
+2. Total file size: 1.5 MB  
+3. Variable List:
+
+| Full name | Description | Type of variable | Unit of measurement | Number of missing values |
+| :---- | :---- | :---- | :---- | :---- |
+| Cluster | ID of the cluster that the row is in | integer | N/A | 0 |
+| Cluster\_Dist | Euclidean distance from the row to the centroid of its cluster | float | N/A | 0 |
+
+More information about the attributes used can be found in our report.
+
+### 4.3.3 Spatial\_Units-Typology\_Construction.geojson
+
+the results of our typology construction analysis on a subset of the attributes. It contains both the clusters and the distance from each point to the center of the cluster.
 
 # 5. SHARING/ACCESS INFORMATION
 
